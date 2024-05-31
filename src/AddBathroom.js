@@ -16,6 +16,14 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
         longitude: 0.0
     });
 
+    const locationChangeHandler = (lat, lng) => {
+        setBathroomFeatures((prevData) => ({
+            ...prevData,
+            latitude: lat,
+            longitude: lng
+        }));
+    }
+
     useEffect(() => {
         if (existingBathroom) {
             setBathroomFeatures({
@@ -159,7 +167,7 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
 
             </form>
             <span class="map">
-                <MapPickerContainer />
+                <MapPickerContainer onLocationChange={locationChangeHandler} />
             </span>
         </div>
     );

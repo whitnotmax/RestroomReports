@@ -11,8 +11,8 @@ const corsOptions = {
     origin: '*'
   };
   app.use(cors(corsOptions));
-
-const uri = "mongodb+srv://wstewart7972:agDfKNdmbACGxx6n@bathroomreports.oxh4tgb.mongodb.net/?retryWrites=true&w=majority";
+  
+const uri = "mongodb+srv://wstewart7972:agDfKNdmbACGxx6n@bathroomreports.oxh4tgb.mongodb.net/?retryWrites=true&w=majority&appName=BathroomReports";
 const PORT = 8080;
 
 

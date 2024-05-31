@@ -1,37 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { MapContainer } from 'react-leaflet';
 
 const DefaultZoom = 15;
 
-const MapPickerContainer = () => {
+let currentMarker;
+const MapPickerContainer = ({ onLocationChange }) => {
 
   const [clickedLatLng, setClickedLatLng] = useState(null);
+  const myLatlng = [33.949771, -83.3722669];
 
   useEffect(() => {
-    const initMap = () => {
-      const myLatlng = { lat: 33.949771, lng: -83.3722669};
-      const map = new window.google.maps.Map(document.getElementById("map"), {
-        zoom: DefaultZoom,
-        center: myLatlng,
-      });
-
-      map.addListener("click", (mapsMouseEvent) => {
-        setClickedLatLng(mapsMouseEvent.latLng.toJSON());
-      });
-    };
-
-    if (!window.google) {
-      // Google Maps API script hasn't been loaded yet
-      console.error("Google Maps API not loaded");
-      return;
+    console.log("ran");
+    if (window.currentMap) {
+      window.currentMap.remove();
+      window.currentMap = null;
     }
+    window.currentMap = window.L.map('map').setView(myLatlng, 16);
+    window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(window.currentMap);
 
-    // Initialize the map 
-    initMap();
+    window.currentMap.on('click', e => {
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+
+      if (currentMarker) {
+        currentMarker.remove();
+        currentMarker = null;
+      }
+      currentMarker = window.L.marker([lat, lng]);
+      currentMarker.addTo(window.currentMap);
+      onLocationChange(lat, lng);
+    })
+    
   }, []);
+
+
+    
 
   return (
     <div>
-        <div id='map' style={{height: '400px' }}></div>
+         <div id="map" style={{ height: "400px" }}></div>
      
     </div>
   );
