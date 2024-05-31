@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 const DefaultZoom = 15;
 
-const MapPickerContainer = ({onLocationChange}) => {
+const MapPickerContainer = () => {
 
   const [clickedLatLng, setClickedLatLng] = useState(null);
 
@@ -16,7 +16,6 @@ const MapPickerContainer = ({onLocationChange}) => {
 
       map.addListener("click", (mapsMouseEvent) => {
         setClickedLatLng(mapsMouseEvent.latLng.toJSON());
-        onLocationChange(mapsMouseEvent.latLng.toJSON().lat, mapsMouseEvent.latLng.toJSON().lng);
       });
     };
 

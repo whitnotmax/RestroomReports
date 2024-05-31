@@ -102,6 +102,7 @@ function App() {
           } />
           <Route path='/explore' element={
             <React.Fragment>
+              <p1>Map here...</p1>
               <MapWithMarkers coordinates={coordinates} />
             </React.Fragment>
           } />
