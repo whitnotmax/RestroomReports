@@ -111,7 +111,8 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
     }
 
     return (
-            <div className="form">
+        <div id="form-container">
+<div className="form">
             <form onSubmit={submitHandler}>
                 <label class="text">Name</label>
                 <input
@@ -170,11 +171,15 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
                 />
                 <br></br>
                 <button type="submit" class="submit">Submit</button>
+                <button onClick={onClose} class="button cancel">Cancel</button>
+
 
             </form>
-            <span class="map">
+        </div>
+            
+            <div class="map-container">
                 <MapPickerContainer onLocationChange={locationChangeHandler} />
-            </span>
+            </div>
         </div>
         
     );

@@ -1,18 +1,29 @@
 .form {
-}
-#form-container {
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5px;
+}
+
+label {
+    text-align: right;
+}
+#form-container {
+    height: 50%;
+
+}
+
+.map-container {
+    height: 50%;
 }
 
 .text {
-    
+    font-weight: 700;
+    padding-right: 5px;
 }
 
-.textbox {
-    
-}
+
 
 .submit {
     width: 80px;
@@ -28,13 +39,15 @@
 
 }
 
-.submit:hover {
-    background-color: rgb(86, 171, 143);
+.cancel {
+    background-color: red;
+
 }
 
-.map {
-    position: relative;
-    top:120px;
-    margin: 0px;
-    padding: 0px;
+.cancel:hover {
+    background-color: rgb(152, 0, 0);
+} 
+
+.submit:hover {
+    background-color: rgb(86, 171, 143);
 }

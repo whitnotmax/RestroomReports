@@ -12,7 +12,6 @@
     overflow-x: hidden;
     overflow: hidden;
     right: 5px;
-    padding-bottom: 100px;
     
 }
 
@@ -30,7 +29,7 @@
 }
 
 .centered {
-    
+    height: 100%;    
 
 }
 
@@ -97,17 +96,7 @@
 }
 
 
-.cancel {
-    position: relative;
-    bottom:380px;
-    right:50px;
-    background-color: red;
 
-}
-
-.cancel:hover {
-    background-color: rgb(152, 0, 0);
-}
 
 /* .overflow {
     position: absolute;
