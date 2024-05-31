@@ -91,7 +91,7 @@ function App() {
   return (
     <div >
 
-      <BrowserRouter>
+      <BrowserRouter basename='/restroom_reports'>
         <Hdr />
         <Routes>
           <Route path="/" element={
