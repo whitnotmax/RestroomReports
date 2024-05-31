@@ -6,6 +6,12 @@ import "./AddBathroom.css";
 
 const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
 
+    useEffect(() => {
+        console.warn("MOUNTING");
+        return () => {
+            console.warn("DISMOUNTING");
+        }
+    }, []);
     const [bathroomFeatures, setBathroomFeatures] = useState({
         id: '',
         name: '',
@@ -105,7 +111,7 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
     }
 
     return (
-        <div className="form">
+            <div className="form">
             <form onSubmit={submitHandler}>
                 <label class="text">Name</label>
                 <input
@@ -170,6 +176,7 @@ const AddBathroom = ({ onAddBathroom, existingBathroom, onClose }) => {
                 <MapPickerContainer onLocationChange={locationChangeHandler} />
             </span>
         </div>
+        
     );
 
 };
